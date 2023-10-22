@@ -13,7 +13,6 @@ class Article(Base):
     title: Mapped[str] = mapped_column(String(76))
     subtitle: Mapped[str] = mapped_column(String(76), nullable=True)
     content: Mapped[str] = mapped_column(String(50_000))
-    images: Mapped[str] = mapped_column(String(50_000), nullable=True)
     theme: Mapped[str] = mapped_column(String(10))
 
     def to_read_model(self) -> ArticleSchema:
@@ -23,6 +22,5 @@ class Article(Base):
             title=self.title,
             subtitle=self.subtitle,
             content=self.content,
-            images=self.images,
             theme=self.theme
         )
