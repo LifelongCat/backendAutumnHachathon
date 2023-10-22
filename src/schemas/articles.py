@@ -9,6 +9,8 @@ class ArticleSchema(BaseModel):
     title: str = Field(min_length=1, max_length=76)
     subtitle: str = Field(min_length=0, max_length=76)
     content: str = Field(min_length=1, max_length=50_000)
+    images: str = Field(min_length=0, max_length=50_000)
+    theme: str = Field(min_length=1, max_length=10)
 
     class Config:
         from_attributes = True
@@ -18,3 +20,5 @@ class ArticleSchemaCreate(BaseModel):
     title: str = Field(min_length=1, max_length=76)
     subtitle: str = Field(min_length=0, max_length=76)
     content: str = Field(min_length=1, max_length=50_000)
+    images: str = Field(min_length=0, max_length=50_000)
+    theme: str = Field(min_length=1, max_length=10)

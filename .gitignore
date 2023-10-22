@@ -2,3 +2,4 @@ __pycache__
 .idea
 src/__pycache__
 venv
+.DS_Store
