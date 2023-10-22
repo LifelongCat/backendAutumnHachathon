@@ -24,4 +24,3 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException) 
 async def validation_exception_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
     return await json_error_response(status.HTTP_422_UNPROCESSABLE_ENTITY,
                                      {exc['loc'][1]: exc['msg'] for exc in exc.errors()})
-

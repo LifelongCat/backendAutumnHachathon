@@ -29,10 +29,10 @@ class SQLAlchemyRepository(AbstractRepository):
 
     async def create_one(self, data: dict) -> int:
         async with async_session_maker() as session:
-            stmt = insert(self.model).values(**data).returning(self.model.id)
-            result = await session.execute(stmt)
+            stmt = insert(self.model).values(**data)
+            await session.execute(stmt)
             await session.commit()
-            return result.scalar_one()
+            return data['id']
 
     async def check_count(self, elem_id: str) -> int:
         async with async_session_maker() as session:
